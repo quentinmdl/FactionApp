@@ -1,0 +1,61 @@
+<div>
+    <div class="add-title">
+      <h2 class="primary">Ajout d'une tâche</h2>
+    </div>
+    <div>
+      <form [formGroup]="addForm">
+        <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field>
+                <input matInput placeholder="Titre" formControlName="title" required>
+                <mat-error *ngIf="addForm.controls.title.hasError('required')">
+                  Un titre est requis
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Contenu" formControlName="content" required></textarea>
+                <mat-error *ngIf="addForm.controls.content.hasError('required')">
+                  Un contenu est requis
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+      
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field>
+                <input matInput [matDatepicker]="addDate" placeholder="Date d'ajout" formControlName="addDate">
+                <mat-datepicker-toggle matSuffix [for]="addDate"></mat-datepicker-toggle>
+                <mat-datepicker #addDate></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+         
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field>
+                <input matInput [matDatepicker]="endDate" placeholder="Date de fin" formControlName="endDate">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+        
+         
+         
+        </mat-grid-list>
+
+        <div mat-dialog-actions>
+          <button mat-raised-button cdkFocusInitial (click)="onSubmit()">Ajouter</button>
+          <button mat-raised-button (click)="close()">Annuler</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  

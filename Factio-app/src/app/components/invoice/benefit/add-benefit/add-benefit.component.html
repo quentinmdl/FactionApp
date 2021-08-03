@@ -1,0 +1,63 @@
+<div>
+    <div class="add-title">
+      <h2 class="primary">Ajout d'un produit</h2>
+    </div>
+    <div>
+      <form [formGroup]="addForm" (change)="onSubmit()">
+        <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+          
+            <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field>
+                <input type="text" matInput placeholder="Produit" formControlName="product" required>
+                <mat-error *ngIf="addForm.controls.product.hasError('required')">
+                  Un produit est requis
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Prix" formControlName="price" required />
+                <mat-error *ngIf="addForm.controls.price.hasError('required')">
+                  Un prix est requis
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Quantité" formControlName="quantity" required />
+                <mat-error *ngIf="addForm.controls.quantity.hasError('required')">
+                  Une quantité est requise
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Heures" formControlName="hour" required>
+                <mat-error *ngIf="addForm.controls.hour.hasError('required')">
+                  Des heures sont requises
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+              
+        </mat-grid-list>
+
+        <div mat-dialog-actions>
+          <button mat-raised-button cdkFocusInitial (click)="onSubmit()">Ajouter</button>
+          <button mat-raised-button (click)="close()">Annuler</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  

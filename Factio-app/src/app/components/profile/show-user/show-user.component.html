@@ -1,0 +1,44 @@
+<div class="col-md-12 user-container">
+  <h2 class="text-center">Profil de l'utilisateur</h2>
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th rowspan="2" scope="col">Photo</th>
+        <th rowspan="2" scope="col">Pseudo</th>
+        <th rowspan="2" scope="col">Nom</th>
+        <th rowspan="2" scope="col">Prénom</th>
+        <th rowspan="2" scope="col">Email</th>
+        <th rowspan="2" scope="col">Métier</th>
+        <th rowspan="2" scope="col">Téléphone</th>
+        <th rowspan="2" scope="col">Adresse</th>
+        <th rowspan="2" scope="col">Ville</th>
+        <th rowspan="2" scope="col">Code postal</th>
+        <th colspan="2" scope="col">Modifier</th>    
+      </tr>
+      <tr>
+        <th>Informations</th>
+        <th>Mdp</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="currentUser != null">
+      <tr>
+        <td><img *ngIf="currentUser.photo != null" [src]="currentUser.photo" style="width:80px; height:auto;"></td>
+        <td>{{ currentUser.username }}</td>
+        <td>{{ currentUser.lastName }}</td>
+        <td>{{ currentUser.firstName }}</td>
+        <td>{{ currentUser.email }}</td>
+        <td>{{ currentUser.job }}</td>
+        <td>{{ currentUser.phoneNumber }}</td>
+        <td>{{ currentUser.address }}</td>
+        <td>{{ currentUser.city }}</td>
+        <td>{{ currentUser.zip }}</td>
+        <td>
+          <mat-icon (click)="editUser(currentUser)">edit</mat-icon>
+        </td>
+        <td>
+          <mat-icon (click)="editPasswordUser(currentUser)">edit</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{F71A4D45-DE4C-4630-B8F3-42705DB5ECD1}|Default">
+  <MonoDevelop.Ide.ItemProperties.Authentication.Factio.Authentication PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Factio.DAL/Factio.DAL.csproj">
+    <Files>
+      <File FileName="Factio.DAL/Factio.DAL.csproj" Line="17" Column="24" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Factio.API" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.PresentationLayer.Factio.API PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Plusieurs projets" Name="Plusieurs projets">
+      <Items>
+        <StartupItem ItemId="{2B326ECC-ECCC-4A40-BE60-1F370B15BAD8}" ItemName="Factio.API" ConfigurationId="Default" />
+        <StartupItem ItemId="{F71A4D45-DE4C-4630-B8F3-42705DB5ECD1}" ItemName="Factio.Authentication" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>

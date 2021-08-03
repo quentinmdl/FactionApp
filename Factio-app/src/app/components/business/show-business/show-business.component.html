@@ -1,0 +1,33 @@
+<div class="col-md-12 business-container">
+  <div class="row" *ngIf="!currentBusiness">
+      <div class="col-md-3 mx-auto text-center">
+          <a class="firstButton" (click)="addBusiness()">Ajouter une entreprise</a>
+      </div>
+  </div>
+  <br>
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th rowspan="2" scope="col">TVA</th>
+        <th rowspan="2" scope="col">Siret</th>
+        <th rowspan="2" scope="col">APE</th>
+        <th rowspan="2" scope="col">Impôt</th>
+        <th rowspan="2" scope="col">Ursaaf</th>
+        <th colspan="2" scope="col">Modifier</th>    
+      </tr>
+    </thead>
+    <tbody *ngIf="currentBusiness != null">
+      <tr>
+        <td>{{ currentBusiness.tva }}</td>
+        <td>{{ currentBusiness.siret }}</td>
+        <td>{{ currentBusiness.ape }}</td>
+        <td>{{ currentBusiness.taxe }}</td>
+        <td>{{ currentBusiness.urssaf }}</td>
+        <td>
+          <mat-icon (click)="editBusiness(currentBusiness)">edit</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

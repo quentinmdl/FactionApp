@@ -1,0 +1,29 @@
+<div class="col-md-6 offset-md-3">
+    <div class="text-center">
+        <a [routerLink]="['/']"> 
+            <img src="../../../assets/logo.png" width="350" height="250">
+        </a>
+    </div>
+    <div class="card">
+        <h4 class="card-header text-center">Réinitialiser votre mot de passe</h4>
+        <div class="card-body">
+            <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" formControlName="email" placeholder="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Un email est requis</div>
+                    </div>
+                </div>
+                
+                <div class="btn-div">
+                    <button [disabled]="loading" class="firstButton">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Envoyer
+                    </button>
+                    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

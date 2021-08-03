@@ -1,0 +1,1 @@
+export declare function calculFileSize(number: number): string;

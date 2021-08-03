@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <form #resumeForm="ngForm" id="formInvoice">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="shadow-sm card">
+          <div class="card-body">
+            <h4 class="card-title d-flex align-items-center">
+              <i class="material-icons">
+                account_circle
+              </i>
+              Client
+              </h4>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" [(ngModel)]="resume.paymentMethod" name="paymentMethod" placeholder="Méthode de paiement"
+                    #PaymentMethod="ngModel" required
+                    [ngClass]="{'is-invalid': PaymentMethod.invalid && (PaymentMethod.touched || resumeForm.submitted) }">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <select  class="form-control" name="customer" [(ngModel)]="resume.customer" (ngModelChange)="onSelectIdCustomer($event)" #Customer="ngModel" required
+                    [ngClass]="{'is-invalid': Customer.invalid && (Customer.touched || resumeForm.submitted) }">
+                    <option [ngValue]="null">Choisissez le client</option>
+                    <option *ngFor="let customer of customers" [ngValue]="{customerId: customer.id}">
+                      {{ customer.lastName + ' ' + customer.firstName }} 
+                    </option>
+                  </select>
+
+                </div>     
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Benefit -->
+        <div class="shadow-sm card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between card-title">
+              <h4 class="d-flex align-items-center">
+                <i class="material-icons">
+                  timeline
+                </i>
+                Produit
+              </h4>
+              <button class="firstButton" (click)="addBenefit()">+</button>
+            </div>
+            <div class="row" *ngFor="let benefit of resume.benefits; let i=index">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="product{{i}}" [(ngModel)]="benefit.product"
+                    placeholder="Produit" #Product="ngModel" required
+                    [ngClass]="{'is-invalid': Product.invalid && (Product.touched || resumeForm.submitted) }">
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control" name="price{{i}}" [(ngModel)]="benefit.price"
+                    placeholder="Prix" #Price="ngModel" required
+                    [ngClass]="{'is-invalid': Price.invalid && (Price.touched || resumeForm.submitted) }">
+                </div>
+              </div>
+              <div class="col-md-6">  
+                <div class="form-group">
+                  <input type="number" class="form-control" name="quantity{{i}}" [(ngModel)]="benefit.quantity"
+                    placeholder="Quantité" #Quantity="ngModel" required
+                    [ngClass]="{'is-invalid': Quantity.invalid && (Quantity.touched || resumeForm.submitted) }">
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control" name="hour{{i}}" [value]="benefit.price * benefit.quantity" [(ngModel)]="benefit.totalPriceHt" />
+                </div>
+              </div>                   
+            </div>
+          </div>
+        </div>
+        <!-- Other Details -->
+        <div class="shadow-sm card">
+          <div class="card-body">
+            <h4 class="card-title d-flex align-items-center">
+              <i class="material-icons"> list </i>Informations supplémentaires
+            </h4>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <textarea type="text" class="form-control" [(ngModel)]="resume.otherDetails" name="otherDetails"
+                  rows="4"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="shadow-sm card action-buttons">
+          <button (click)="resumeForm.valid ? generatePdf('open') : ''"
+            class="firstButton d-flex align-items-center justify-content-center">
+            <i class="material-icons">
+              picture_as_pdf
+            </i> <span>Ouvrir PDF</span></button>
+          <button (click)="resumeForm.valid ? onSubmit() : ''"
+            class="firstButton d-flex align-items-center justify-content-center">
+            <i class="material-icons">
+              save
+            </i><span>Sauvegarder</span></button>
+          <button type='reset' (click)="resetForm()"
+            class="firstButton d-flex align-items-center justify-content-center">
+            <i class="material-icons">
+              clear
+            </i><span>Réinitialiser</span></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

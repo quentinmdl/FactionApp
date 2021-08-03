@@ -1,0 +1,53 @@
+<div class="col-md-12 customer-container">
+    <div class="row">
+      <div class="col-md-3 mx-auto">
+        <form [formGroup]="formGroup">
+        <div class="md-form">
+          <input type="text" class="form-control" name="searchString" placeholder="Rechercher par le nom" formControlName="filter" />
+        </div>
+      </form>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 mx-auto text-center">
+          <a class="firstButton" (click)="AddCustomer()">Ajouter un client</a>
+      </div>
+    </div>
+    <table class="table table-striped text-center" style="margin-top: 3%;">
+      <thead>
+        <tr>
+          <th scope="col">Logo</th>
+          <th scope="col">Secteur professionnel</th>  
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Téléphone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">Ville</th>  
+          <th scope="col">Code postal</th>  
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of filteredCustomers$ | async | paginate: { itemsPerPage: 10, currentPage: actualPage }">
+          <td><img *ngIf="customer.logo != null" [src]="customer.logo" style="width:80px; height:auto;"></td>
+          <td>{{ customer.businessSector }}</td>
+          <td>{{ customer.lastName }}</td>
+          <td>{{ customer.firstName }}</td>
+          <td>{{ customer.phoneNumber }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.address }}</td>
+          <td>{{ customer.city }}</td>
+          <td>{{ customer.zip }}</td>
+          <td>
+              <mat-icon (click)="editCustomer(customer)">edit</mat-icon>
+              <mat-icon (click)="deleteCustomer(customer)">delete</mat-icon>
+          </td>   
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<app-loading-spinner></app-loading-spinner>
+<pagination-controls class="pagination" (pageChange)="actualPage = $event"></pagination-controls>

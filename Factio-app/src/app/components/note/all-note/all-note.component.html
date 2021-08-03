@@ -1,0 +1,34 @@
+<div class="col-md-12 note-container">
+    <div class="row">
+      <div class="col-md-3 mx-auto text-center">
+          <a class="firstButton" (click)="AddNote()">Ajouter une tâche</a>
+      </div>
+    </div>
+    <table class="table table-striped text-center" style="margin-top: 3%;">
+      <thead>
+        <tr>
+          <th scope="col">Titre</th>
+          <th scope="col">Contenu</th>  
+          <th scope="col">Date d'ajout</th>
+          <th scope="col">Date de fin</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let note of notes | paginate: { itemsPerPage: 10, currentPage: actualPage }">
+          <td>{{ note.title }}</td>
+          <td>{{ note.content| slice:0:30 }}<span *ngIf="note.content.length >= 30">...</span></td>
+          <td>{{ note.addDate | date }}</td>
+          <td>{{ note.endDate | date}} </td>
+          <td>
+              <mat-icon (click)="showNote(note)">description</mat-icon>
+              <mat-icon (click)="editNote(note)">edit</mat-icon>
+              <mat-icon (click)="deleteNote(note)">delete</mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<app-loading-spinner></app-loading-spinner>
+<pagination-controls class="pagination" (pageChange)="actualPage = $event"></pagination-controls>

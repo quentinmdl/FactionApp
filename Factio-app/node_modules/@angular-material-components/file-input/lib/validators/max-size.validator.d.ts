@@ -1,0 +1,6 @@
+import { ValidatorFn } from '@angular/forms';
+/**
+ * Validator for size of file
+ * @param max Max of size of file (in bytes)
+ */
+export declare function MaxSizeValidator(max: number): ValidatorFn;

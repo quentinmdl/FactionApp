@@ -1,0 +1,21 @@
+<h1 mat-dialog-title> Tâche : {{ currentNote.title }}</h1>
+
+<div mat-dialog-content>
+    <div style="word-break: break-all;">
+      {{ currentNote.content }}
+    </div>
+    <div>
+      Date d'ajout : 
+      {{ currentNote.addDate }}
+    </div>
+    <div>
+      Date de fin : 
+      {{ currentNote.endDate }}
+    </div>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button cdkFocusInitial (click)="deleteNote(currentNote)">Supprimer</button>
+  <button mat-raised-button cdkFocusInitial (click)="close()">Fermer</button>
+</div>

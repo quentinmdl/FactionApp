@@ -1,0 +1,110 @@
+<div>
+  <div class="add-title">
+    <h2 class="primary">Modification du client</h2>
+  </div>
+  <div>
+    <form [formGroup]="editForm">
+      <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">      
+        
+        <mat-grid-tile>
+          <div class="text-inside btnFile-div">
+            <input #file id="myFile" type="file" class="inputFile" (change)="handleUpload($event)" accept="image/*" />
+            <label for="file" (click)="file.click()">Modifier l'image de profile</label>
+            {{ this.name }}
+          </div>   
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Métier" formControlName="job" required />
+              <mat-error *ngIf="editForm.controls.job.hasError('required')">
+                Un métier est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Identifiant" formControlName="username" required />
+              <mat-error *ngIf="editForm.controls.username.hasError('required')">
+                Un identifiant est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="email" matInput #email placeholder="Email" formControlName="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required />
+              <mat-error *ngIf="editForm.controls.email.hasError('required')">
+                Un email est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Numéro" formControlName="phoneNumber"  minlength="10" maxlength="10" required />
+              <mat-error *ngIf="editForm.controls.phoneNumber.hasError('required')">
+                Un téléphone est requis
+              </mat-error>
+              <mat-error *ngIf="editForm.controls.phoneNumber.hasError('minlength')">
+                Téléphone non valide
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Adresse" formControlName="address" required />
+              <mat-error *ngIf="editForm.controls.address.hasError('required')">
+                Une adresse est requise
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Ville" formControlName="city" required />
+              <mat-error *ngIf="editForm.controls.city.hasError('required')">
+                Une ville est requise
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="number" matInput placeholder="Code postal" formControlName="zip" required />
+              <mat-error *ngIf="editForm.controls.zip.hasError('required')">
+                Un code postal est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+
+      <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+      <div mat-dialog-actions>
+        <button mat-raised-button cdkFocusInitial (click)="onSubmit()">Modifier</button>
+        <button mat-raised-button (click)="closeNote()">Annuler</button>
+      </div>
+
+    </form>
+  </div>
+</div>

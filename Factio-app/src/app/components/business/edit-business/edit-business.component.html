@@ -1,0 +1,70 @@
+<div>
+    <div class="add-title">
+      <h2 class="primary">Entreprise</h2>
+    </div>
+    <div>
+      <form [formGroup]="editForm">
+        <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+            
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="TVA" formControlName="tva" required />
+                <mat-error *ngIf="editForm.controls.tva.hasError('required')">
+                  Tva est requis
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="N° Siret" formControlName="siret" required />
+                <mat-error *ngIf="editForm.controls.siret.hasError('required')">
+                  Un Siret est requis
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+  
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="N° Ape" formControlName="ape" required />
+                <mat-error *ngIf="editForm.controls.ape.hasError('required')">
+                  Un numéro APE est requis
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+  
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Urssaf" formControlName="urssaf" />
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+  
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Impôt" formControlName="taxe"/>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+              
+        </mat-grid-list>
+
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+        <div mat-dialog-actions>
+          <button mat-raised-button cdkFocusInitial (click)="onSubmit()">Modifier</button>
+          <button mat-raised-button (click)="close()">Annuler</button>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="chart-wrapper col-12">
+        <canvas id="chartHour"></canvas>   
+        <div class="dropdown show">
+            <span class="gearButton" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                &#9881;
+            </span>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <button class="dropdown-item" (click)="addEditHour()">Modifier</button>
+                <button class="dropdown-item" (click)="this.updateChart()">Actualiser</button>
+            </div>
+        </div>
+    </div>
+    <span class="material-icons">
+        refresh 
+    </span>
+    <p>{{ this.updateDate }}</p>
+</div>

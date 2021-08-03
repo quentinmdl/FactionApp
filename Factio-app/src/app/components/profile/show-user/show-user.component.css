@@ -1,0 +1,32 @@
+.user-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
+.table {
+  margin-bottom: 2%;
+}
+
+.true {
+  background-color: #ffc800 !important;
+}
+
+thead {
+  background-color: #eb6d6d;
+  color: white !important;
+}
+
+td {
+  color: #000000 !important;
+}
+
+.btn {
+  background-color: #eb6d6d !important;
+  color: white !important;
+  opacity: 0.7;
+  margin-left: 1%;
+}
+
+.mat-icon:hover {cursor: pointer;}

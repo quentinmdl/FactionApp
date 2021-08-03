@@ -1,0 +1,107 @@
+/* CONTENT PAGE */
+.content {
+  padding: 50px 0px;
+} 
+/* ERREUR */
+code {
+  color: #e01a76;
+}
+
+/* BUTTON MODAL */
+.mat-dialog-content {
+  margin-bottom: 24px !important;
+}
+
+.mat-dialog-actions {
+  justify-content: center;
+  margin-bottom: 0 !important;
+}
+
+/* BUTTON LINK */
+.link-div {
+  text-align: center;
+}
+a {
+  color: #000000;
+}
+a:hover {
+  color: #000000;
+  text-decoration: none;
+  list-style: none;
+  cursor: pointer;
+}
+
+/* BUTTON */
+.btn-div {
+  text-align: center;
+}
+.firstButton {
+  color: white !important;
+  background-color: black;
+  border-radius: 5px;
+  list-style: none;
+  text-decoration: none;
+  padding: 10Px;
+  text-align: center;
+  border: none;
+}
+
+/* BUTTON FILE */
+.inputFile {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+.btnFile-div label {
+  display: block;
+  position: relative;
+  padding: 5px;
+  border-radius: 5px;
+  background: white;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(101, 101, 101);
+  cursor: pointer;
+  transition: transform .2s ease-out;
+}
+
+/* BUTTON GEAR */
+.gearButton {
+  font-size: 40px;
+  right: 0;
+  position: absolute;
+  padding: 0 10px;
+  cursor: pointer;
+  color: grey;
+}
+
+/* ADD FORM (No modal - Invoice) */
+.add-form {
+  text-align: center;
+}
+
+/* GLOBAL */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* CHART */
+.chart-wrapper {
+  display: flex;
+  padding: 10px;
+}
+
+/* PAGINATION */  
+
+.pagination, .ngx-pagination {
+  color: black;
+  margin: auto auto;
+  justify-content: center;
+}
+.ngx-pagination .current {
+  background: #eb6d6d !important;
+}

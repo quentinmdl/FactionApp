@@ -1,0 +1,119 @@
+<div>
+  <div class="add-title">
+    <h2 class="primary">Ajout d'un client</h2>
+  </div>
+  <div>
+    <form [formGroup]="addForm">
+      <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+  
+        <mat-grid-tile>
+          <div class="text-inside btnFile-div">
+            <input #file id="myFile" type="file" class="inputFile" (change)="handleUpload($event)" accept="image/*" />
+            <label for="file" (click)="file.click()">Ajouter un logo</label>
+            {{ this.name }}
+          </div>   
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Domaine d'activité" formControlName="businessSector" required />
+              <mat-error *ngIf="addForm.controls.businessSector.hasError('required')">
+                Un domaine d'activité est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Prénom" formControlName="firstName" required />
+              <mat-error *ngIf="addForm.controls.firstName.hasError('required')">
+                Un prénom est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Nom" formControlName="lastName" required />
+              <mat-error *ngIf="addForm.controls.lastName.hasError('required')">
+                Un nom est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Numéro" formControlName="phoneNumber"  minlength="10" maxlength="10" required />
+              <mat-error *ngIf="addForm.controls.phoneNumber.hasError('required')">
+                Un téléphone est requis
+              </mat-error>
+              <mat-error *ngIf="addForm.controls.phoneNumber.hasError('minlength')">
+                Téléphone non valide
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="email" matInput placeholder="Email" formControlName="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required />
+              <mat-error *ngIf="addForm.controls.email.hasError('required')">
+                Un email est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Adresse" formControlName="address" required />
+              <mat-error *ngIf="addForm.controls.address.hasError('required')">
+                Une adresse est requise
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Ville" formControlName="city" required />
+              <mat-error *ngIf="addForm.controls.city.hasError('required')">
+                Une ville est requise
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input type="number" matInput placeholder="Code postal" formControlName="zip" required />
+              <mat-error *ngIf="addForm.controls.zip.hasError('required')">
+                Un code postal est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        
+      </mat-grid-list>
+
+      <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+      <div mat-dialog-actions>
+        <button mat-raised-button (click)="onSubmit()">Ajouter</button>
+        <button mat-raised-button cdkFocusInitial (click)="close()">Annuler</button>
+      </div>
+
+    </form>
+  </div>
+</div>

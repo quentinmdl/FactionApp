@@ -1,0 +1,25 @@
+.invoice-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  
+  .table {
+    margin-bottom: 2%;
+  }
+  
+  .true {
+    background-color: #ffc800 !important;
+  }
+  
+  thead {
+    background-color: #eb6d6d;
+    color: white !important;
+  }
+  
+  td {
+    color: #000000 !important;
+  }
+  
+  .mat-icon:hover {cursor: pointer;}
+  

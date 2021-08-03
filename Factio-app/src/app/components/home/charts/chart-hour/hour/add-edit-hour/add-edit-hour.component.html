@@ -1,0 +1,92 @@
+<div>
+    <div class="add-title">
+      <h2 class="primary" *ngIf="!isAddMode">Ajout des horaires de la semaine</h2>
+      <h2 class="primary" *ngIf="isAddMode == true">Modification des horaires</h2>
+    </div>
+    <div>
+      <form [formGroup]="addEditForm">
+        <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+    
+    
+          <!-- <mat-grid-tile>
+            <div class="text-inside">
+                <mat-form-field appearance="fill">
+                    <mat-label>Semaine</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let  of " [value]="value">
+                        
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+          </mat-grid-tile> -->
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Heure Semaine 1" formControlName="week1" required />
+                <mat-error *ngIf="addEditForm.controls.week1.hasError('required')">
+                  Une heure est requise
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Heure Semaine 2" formControlName="week2" required />
+                <mat-error *ngIf="addEditForm.controls.week2.hasError('required')">
+                  Une heure est requise
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Heure Semaine 3" formControlName="week3" required />
+                <mat-error *ngIf="addEditForm.controls.week3.hasError('required')">
+                  Une heure est requise
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Heure Semaine 4" formControlName="week4" required />
+                <mat-error *ngIf="addEditForm.controls.week4.hasError('required')">
+                  Une heure est requise
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Heure Semaine 5" formControlName="week5" required />
+                <mat-error *ngIf="addEditForm.controls.week5.hasError('required')">
+                  Une heure est requise
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+         
+        </mat-grid-list>
+  
+        <!-- <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
+  
+        <div mat-dialog-actions>
+          <button *ngIf="!isAddMode" mat-raised-button (click)="onSubmit()">Ajouter</button>
+          <button *ngIf="isAddMode == true" mat-raised-button (click)="onSubmit()">Modifier</button>
+          <button mat-raised-button cdkFocusInitial (click)="close()">Annuler</button>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  

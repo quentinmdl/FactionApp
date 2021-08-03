@@ -1,0 +1,31 @@
+<div class="col-md-12 benefit-container">
+    <div class="row">
+      <div class="col-md-3 mx-auto text-center">
+          <a class="firstButton" (click)="AddBenefit()">Ajouter un produit</a>
+      </div>
+    </div>
+    <table class="table table-striped text-center" style="margin-top: 3%;">
+      <thead>
+        <tr>
+          <th scope="col">Produit</th>
+          <th scope="col">Prix</th>  
+          <th scope="col">Quantité</th>
+          <th scope="col">Heures</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let benefit of benefits">
+          <td>{{ benefit.product }}</td>
+          <td>{{ benefit.price }}</td>
+          <td>{{ benefit.quantity }}</td>
+          <td>{{ benefit.hour }}</td>
+          <td>
+              <mat-icon (click)="editBenefit(benefit)">edit</mat-icon>
+              <mat-icon (click)="showBenefit(benefit)">open</mat-icon>
+              <mat-icon (click)="deleteBenefit(benefit)">delete</mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

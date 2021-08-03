@@ -1,0 +1,41 @@
+.navabr {
+  margin-bottom: 0px;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.nav-link {
+  margin-left: 4%;
+  color: white !important;
+  background-color: #4b4b4b;
+  border-radius: 3px;
+}
+
+.link-active > .nav-link {
+  color: white;
+
+  color: white !important;
+  background-color: #eb6d6d;
+  border-radius: 3px;
+}
+
+.btn:hover {cursor: pointer;}
+
+.nav-item:hover {cursor: pointer;}
